@@ -1,8 +1,8 @@
 'use client'
 
-import Image from 'next/image'
-import ProgressBar from '@/components/ProgressBar' // 진행바 컴포넌트
 import { pageState } from '@/atom'
+import ProgressBar from '@/components/ProgressBar'; // 진행바 컴포넌트
+import Image from 'next/image'
 import { useRecoilState } from 'recoil'
 
 const PracticeImagePage: React.FC = () => {

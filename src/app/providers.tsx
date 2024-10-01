@@ -1,9 +1,9 @@
 'use client'
 
-import { RecoilRoot } from 'recoil'
 import ResetButton from '@/components/ResetButton'
-import { Toaster } from 'react-hot-toast'
 import { cn } from '@/lib/utils'
+import { Toaster } from 'react-hot-toast'
+import { RecoilRoot } from 'recoil'
 
 interface Props {
   children?: React.ReactNode

@@ -2,9 +2,9 @@
 
 import * as XLSX from 'xlsx'
 
-import React from 'react'
-import { Test } from '@prisma/client'
 import { dateFormat } from '@/lib/dateFormat'
+import { Test } from '@prisma/client'
+import React from 'react'
 
 interface ResultPageProps {
   data: Test[]

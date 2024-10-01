@@ -1,4 +1,4 @@
-import { PictureType, QuestionFormType } from '@/interface'
+import { PictureType } from '@/interface'
 
 import { atom } from 'recoil'
 import { recoilPersist } from 'recoil-persist'

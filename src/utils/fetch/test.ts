@@ -1,7 +1,7 @@
 'use server'
 
-import { Test } from '@prisma/client'
 import prisma from '@/db'
+import { Test } from '@prisma/client'
 
 export const useFetchTest = async () => {
   try {

@@ -5,10 +5,10 @@ import {
   shuffledAImagesState,
   shuffledBImagesState,
 } from '@/atom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import Image from 'next/image'
 import ProgressBar from '@/components/ProgressBar'
+import Image from 'next/image'
 import { useRecoilState } from 'recoil'
 
 const TestPage: React.FC = () => {

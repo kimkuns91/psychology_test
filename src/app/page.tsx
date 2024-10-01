@@ -1,6 +1,6 @@
 'use client'
 
-import { pageState, shuffledAImagesState, shuffledBImagesState } from '@/atom'
+import { pageState } from '@/atom'
 import { useEffect, useState } from 'react'
 
 import EndPage from '@/components/pages/EndPage'
