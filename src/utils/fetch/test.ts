@@ -5,7 +5,11 @@ import { Test } from '@prisma/client'
 
 export const useFetchTest = async () => {
   try {
-    const results = await prisma.test.findMany()
+    const results = await prisma.test.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    })
 
     if (!results) {
       return null

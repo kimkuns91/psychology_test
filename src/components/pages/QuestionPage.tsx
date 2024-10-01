@@ -74,39 +74,36 @@ const QuestionPage: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center mt-10">
-      <div className="flex items-center justify-center space-x-12">
-        <span className="text-lg font-semibold text-purple-600">
-          스트레스 받지 않음
-        </span>
-
-        {/* 버튼들 */}
-        <div className="flex items-center justify-center space-x-12">
+      <div className="flex flex-col items-center space-y-12">
+        <p className="text-3xl">
+          방금 인스타그램 스토리를 보는 동안 당신의 스트레스 정도를 골라주세요.
+        </p>
+        <div className="flex items-center space-x-12 text-2xl">
           <button
+            className="hover:text-blue-400 transition-all duration-200"
             onClick={() => handleAnswer('1')}
-            className="w-20 h-20 border-4 border-purple-600 rounded-full focus:ring-2 focus:ring-purple-500"
-          ></button>
+          >
+            1. 전혀 스트레스 받지 않음
+          </button>
           <button
+            className="hover:text-blue-400 transition-all duration-200"
             onClick={() => handleAnswer('2')}
-            className="w-16 h-16 border-4 border-purple-600 rounded-full focus:ring-2 focus:ring-purple-500"
-          ></button>
+          >
+            2. 스트레스를 받지 않음
+          </button>
           <button
+            className="hover:text-blue-400 transition-all duration-200"
             onClick={() => handleAnswer('3')}
-            className="w-14 h-14 border-4 border-gray-500 rounded-full focus:ring-2 focus:ring-gray-400"
-          ></button>
+          >
+            3.약간 스트레스 받음
+          </button>
           <button
+            className="hover:text-blue-400 transition-all duration-200"
             onClick={() => handleAnswer('4')}
-            className="w-16 h-16 border-4 border-green-600 rounded-full focus:ring-2 focus:ring-green-500"
-          ></button>
-          <button
-            onClick={() => handleAnswer('5')}
-            className="w-20 h-20 border-4 border-green-600 rounded-full focus:ring-2 focus:ring-green-500"
-          ></button>
+          >
+            4. 매우 스트레스 받음
+          </button>
         </div>
-
-        {/* "그렇지 않다" 텍스트 */}
-        <span className="text-lg font-semibold text-green-600">
-          스트레스 받음
-        </span>
       </div>
     </div>
   )

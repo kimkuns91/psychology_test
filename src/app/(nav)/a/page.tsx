@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 
 import { pageState } from '@/atom'
+import AStartPage from '@/components/pages/AStartPage'
 import EndPage from '@/components/pages/EndPage'
 import ExplainPage from '@/components/pages/ExplainPage'
 import IntroPage from '@/components/pages/IntroPage'
@@ -11,7 +12,6 @@ import PracticeImagePage from '@/components/pages/PracticeImagePage'
 import PracticePage from '@/components/pages/PracticePage'
 import PracticeQuestionPage from '@/components/pages/PracticeQuestionPage'
 import QuestionPage from '@/components/pages/QuestionPage'
-import StartPage from '@/components/pages/StartPage'
 import TestPage from '@/components/pages/TestPage'
 import { useRecoilState } from 'recoil'
 
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
 
   switch (page) {
     case 'start':
-      return <StartPage />
+      return <AStartPage />
     case 'practice':
       return <PracticePage />
     case 'practiceImage':

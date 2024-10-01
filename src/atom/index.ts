@@ -1,5 +1,4 @@
 import { PictureType } from '@/interface'
-
 import { atom } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 
@@ -11,6 +10,7 @@ export const pageState = atom<
   | 'practice'
   | 'notice'
   | 'practiceQuestion'
+  | 'explain'
   | 'intro'
   | 'practiceImage'
   | 'question'
