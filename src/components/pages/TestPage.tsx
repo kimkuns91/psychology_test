@@ -10,6 +10,7 @@ import ProgressBar from '@/components/ProgressBar'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useRecoilState } from 'recoil'
+import { Loader } from '../Loader'
 
 const TestPage: React.FC = () => {
   const [shuffledAImages] = useRecoilState(shuffledAImagesState)
@@ -17,7 +18,7 @@ const TestPage: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useRecoilState(currentIndexState)
   const [currentGroup, setCurrentGroup] = useRecoilState(currentGroupState)
   const [page, setPage] = useRecoilState(pageState)
-  
+
   // 이미지 로드 상태 관리
   const [imageLoaded, setImageLoaded] = useState(false)
 
@@ -46,6 +47,8 @@ const TestPage: React.FC = () => {
       {imageLoaded && (
         <ProgressBar duration={10} onComplete={handleProgressComplete} />
       )}
+
+      {!imageLoaded && <Loader />}
 
       {currentImage ? (
         <Image
