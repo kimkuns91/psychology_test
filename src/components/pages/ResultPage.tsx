@@ -25,7 +25,7 @@ const ResultPage: React.FC<ResultPageProps> = ({ data }) => {
     XLSX.writeFile(workbook, 'test_data.xlsx')
   }
   return (
-    <div className="container mx-auto py-12">
+    <div className="container w-full min-h-screen mx-auto py-12">
       {/* 엑셀 다운로드 버튼 */}
       <div className="mb-20 flex justify-end">
         <button
@@ -83,7 +83,7 @@ const ResultPage: React.FC<ResultPageProps> = ({ data }) => {
           ))}
         </div>
       ) : (
-        <h1 className="text-center text-2xl font-bold text-gray-800">
+        <h1 className="text-center text-2xl font-bold text-white">
           데이터 없음
         </h1>
       )}

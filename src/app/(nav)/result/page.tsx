@@ -5,7 +5,7 @@ export default async function Page() {
   const data = await useFetchTest()
 
   if (data === null) {
-    return <h1>데이터가 없습니다.</h1>
+    return <h1 className="text-white text-3xl">데이터가 없습니다.</h1>
   }
 
   return <ResultPage data={data} />

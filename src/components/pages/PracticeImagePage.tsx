@@ -1,11 +1,11 @@
 'use client'
 
-import { pageState } from '@/atom'
+import { pageState } from '@/atom';
 import ProgressBar from '@/components/ProgressBar'; // 진행바 컴포넌트
-import Image from 'next/image'
-import { useState } from 'react'
-import { useRecoilState } from 'recoil'
-import Spinner from '../Spinner'
+import Image from 'next/image';
+import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import Spinner from '../Spinner';
 
 const PracticeImagePage: React.FC = () => {
   const [page, setPage] = useRecoilState(pageState)
