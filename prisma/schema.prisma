@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Test {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime @default(now())
+  name        String?
+
+  // A group fields
+  A_01        String
+  A_02        String
+  A_03        String
+  A_04        String
+  A_05        String
+  A_06        String
+  A_07        String
+  A_08        String
+  A_09        String
+  A_10        String
+  A_11        String
+  A_12        String
+  A_13        String
+  A_14        String
+  A_15        String
+  A_16        String
+  A_17        String
+  A_18        String
+  A_19        String
+  A_20        String
+  A_21        String
+  A_22        String
+  A_23        String
+  A_24        String
+  A_25        String
+  A_26        String
+  A_27        String
+  A_28        String
+  A_29        String
+  A_30        String
+
+  // B group fields
+  B_01        String
+  B_02        String
+  B_03        String
+  B_04        String
+  B_05        String
+  B_06        String
+  B_07        String
+  B_08        String
+  B_09        String
+  B_10        String
+  B_11        String
+  B_12        String
+  B_13        String
+  B_14        String
+  B_15        String
+  B_16        String
+  B_17        String
+  B_18        String
+  B_19        String
+  B_20        String
+  B_21        String
+  B_22        String
+  B_23        String
+  B_24        String
+  B_25        String
+  B_26        String
+  B_27        String
+  B_28        String
+  B_29        String
+  B_30        String
+}
