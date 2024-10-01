@@ -10,7 +10,7 @@ import ProgressBar from '@/components/ProgressBar'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { Loader } from '../Loader'
+import Spinner from '../Spinner'
 
 const TestPage: React.FC = () => {
   const [shuffledAImages] = useRecoilState(shuffledAImagesState)
@@ -48,7 +48,7 @@ const TestPage: React.FC = () => {
         <ProgressBar duration={10} onComplete={handleProgressComplete} />
       )}
 
-      {!imageLoaded && <Loader />}
+      {!imageLoaded && <Spinner />}
 
       {currentImage ? (
         <Image

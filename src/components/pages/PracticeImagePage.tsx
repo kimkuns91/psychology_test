@@ -1,11 +1,11 @@
 'use client'
 
-import { pageState } from '@/atom';
+import { pageState } from '@/atom'
 import ProgressBar from '@/components/ProgressBar'; // 진행바 컴포넌트
-import Image from 'next/image';
-import { useState } from 'react';
-import { useRecoilState } from 'recoil';
-import { Loader } from '../Loader';
+import Image from 'next/image'
+import { useState } from 'react'
+import { useRecoilState } from 'recoil'
+import Spinner from '../Spinner'
 
 const PracticeImagePage: React.FC = () => {
   const [page, setPage] = useRecoilState(pageState)
@@ -25,7 +25,7 @@ const PracticeImagePage: React.FC = () => {
       {imageLoaded && (
         <ProgressBar duration={10} onComplete={handleProgressComplete} />
       )}
-      {!imageLoaded && <Loader />}
+      {!imageLoaded && <Spinner />}
       <Image
         src="/images/practice.webp"
         alt="연습 이미지"
