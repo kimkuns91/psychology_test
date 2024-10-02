@@ -23,7 +23,7 @@ const PracticeImagePage: React.FC = () => {
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center relative">
       {imageLoaded && (
-        <ProgressBar duration={0.1} onComplete={handleProgressComplete} />
+        <ProgressBar duration={10} onComplete={handleProgressComplete} />
       )}
       {!imageLoaded && <Spinner />}
       <Image

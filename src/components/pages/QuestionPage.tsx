@@ -36,7 +36,7 @@ const QuestionPage: React.FC = () => {
   const isLastAnswer = useRef(false)
 
   useEffect(() => {
-    // answers가 업데이트된 후 axios.post를 호출
+    // 마지막 응답에서만 API 호출
     const saveAnswers = async () => {
       if (isLastAnswer.current) {
         try {
@@ -50,6 +50,7 @@ const QuestionPage: React.FC = () => {
             resetShuffledAImages()
             resetShuffledBImages()
             setPage('end')
+            isLastAnswer.current = false // 플래그 리셋
           }
         } catch (error) {
           console.error('답변 저장 실패:', error)

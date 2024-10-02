@@ -45,7 +45,7 @@ const TestPage: React.FC = () => {
     <div className="w-full h-screen flex flex-col justify-center items-center relative">
       {/* 이미지가 로드되면 ProgressBar 시작 */}
       {imageLoaded && (
-        <ProgressBar duration={0.1} onComplete={handleProgressComplete} />
+        <ProgressBar duration={10} onComplete={handleProgressComplete} />
       )}
 
       {!imageLoaded && <Spinner />}
