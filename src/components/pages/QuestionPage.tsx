@@ -47,8 +47,6 @@ const QuestionPage: React.FC = () => {
           resetCurrentIndex()
           resetShuffledAImages()
           resetShuffledBImages()
-          resetPage()
-
           setPage('end')
         }
       } catch (error) {
