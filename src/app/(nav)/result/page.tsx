@@ -9,6 +9,7 @@ import { Test } from '@prisma/client'
 import axios from 'axios'
 
 export default function ResultPage() {
+  const [loading, setLoading] = useState(true)
   const [data, setData] = useState<Test[]>([])
 
   // 엑셀 파일로 변환 및 다운로드 함수
@@ -26,16 +27,18 @@ export default function ResultPage() {
   }
 
   const fetchData = async () => {
-    await axios
-      .get('/api/result')
-      .then((res) => res.data)
-      .then((data) => {
-        setData(data)
-      })
-      .catch((error) => {
-        console.error('데이터 가져오기 오류:', error)
-      })
+    setLoading(true)
+    try {
+      const res = await axios.get('/api/result')
+      const data = res.data
+      setData(data)
+    } catch (error) {
+      console.error('데이터 가져오기 오류:', error)
+    } finally {
+      setLoading(false)
+    }
   }
+
   useEffect(() => {
     fetchData()
   }, [])

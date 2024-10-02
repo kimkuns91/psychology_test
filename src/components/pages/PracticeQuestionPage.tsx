@@ -17,7 +17,7 @@ const PracticeQuestionPage: React.FC = () => {
     <div className="flex flex-col items-center mt-10">
       <div className="flex flex-col items-center space-y-12">
         <p className="text-3xl">
-          방금 인스타그램 스토리를 보는 동안 당신의 스트레스 정도를 골라주세요.
+          방금 인스타그램 게시물을 보는 동안 당신의 스트레스 정도를 골라주세요.
         </p>
         <div className="flex items-center space-x-12 text-2xl">
           <button

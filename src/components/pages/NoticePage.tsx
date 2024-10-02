@@ -22,7 +22,7 @@ const NoticePage: React.FC = () => {
 
   return (
     <h1 className="text-3xl">
-      인스타그램 스토리를 보는 동안 당신의 스트레스 정도를 골라주세요.
+      인스타그램 게시물을 보는 동안 당신의 스트레스 정도를 골라주세요.
     </h1>
   )
 }
