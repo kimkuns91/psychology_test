@@ -4,6 +4,7 @@ import * as XLSX from 'xlsx'
 
 import { useEffect, useState } from 'react'
 
+import Spinner from '@/components/Spinner'
 import { dateFormat } from '@/lib/dateFormat'
 import { Test } from '@prisma/client'
 import axios from 'axios'
@@ -42,6 +43,8 @@ export default function ResultPage() {
   useEffect(() => {
     fetchData()
   }, [])
+
+  if (loading) return <Spinner />
 
   if (data.length === 0)
     return (
