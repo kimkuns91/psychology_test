@@ -8,6 +8,7 @@ import {
   shuffledAImagesState,
   shuffledBImagesState,
 } from '@/atom'
+import { useEffect, useRef } from 'react'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 
 import { PictureType } from '@/interface'
@@ -31,40 +32,54 @@ const QuestionPage: React.FC = () => {
   const resetShuffledBImages = useResetRecoilState(shuffledBImagesState)
   const resetPage = useResetRecoilState(pageState)
 
-  const handleAnswer = async (answer: string) => {
-    if (currentIndex === 59) {
-      setAnswers({
-        ...answers,
-        [shuffledBImages[currentIndex - 30].id]: answer,
-      })
-      try {
-        const res = await axios.post('/api/save', answers)
-        if (res.status === 200) {
-          console.log('답변 저장 성공')
-          // 모든 상태를 초기화
-          resetAnswers()
-          resetCurrentGroup()
-          resetCurrentIndex()
-          resetShuffledAImages()
-          resetShuffledBImages()
-          setPage('end')
+  // 마지막 응답 여부를 감지하는 ref
+  const isLastAnswer = useRef(false)
+
+  useEffect(() => {
+    // answers가 업데이트된 후 axios.post를 호출
+    const saveAnswers = async () => {
+      if (isLastAnswer.current) {
+        try {
+          const res = await axios.post('/api/save', answers)
+          if (res.status === 200) {
+            console.log('답변 저장 성공')
+            // 모든 상태를 초기화
+            resetAnswers()
+            resetCurrentGroup()
+            resetCurrentIndex()
+            resetShuffledAImages()
+            resetShuffledBImages()
+            setPage('end')
+          }
+        } catch (error) {
+          console.error('답변 저장 실패:', error)
         }
-      } catch (error) {
-        console.error(error)
       }
+    }
+
+    saveAnswers()
+  }, [answers, resetAnswers, resetCurrentGroup, resetCurrentIndex, resetShuffledAImages, resetShuffledBImages, setPage])
+
+  const handleAnswer = (answer: string) => {
+    if (currentIndex === 59) {
+      setAnswers((prevAnswers) => ({
+        ...prevAnswers,
+        [shuffledBImages[currentIndex - 30].id]: answer,
+      }))
+      isLastAnswer.current = true // 마지막 응답 플래그 설정
       return
     }
 
     if (currentIndex <= 29) {
-      setAnswers({
-        ...answers,
+      setAnswers((prevAnswers) => ({
+        ...prevAnswers,
         [shuffledAImages[currentIndex].id]: answer,
-      })
+      }))
     } else if (currentIndex > 29) {
-      setAnswers({
-        ...answers,
+      setAnswers((prevAnswers) => ({
+        ...prevAnswers,
         [shuffledBImages[currentIndex - 30].id]: answer,
-      })
+      }))
     }
     setCurrentIndex(currentIndex + 1)
     setPage('test') // 답변 후 다시 테스트 이미지 페이지로 전환
@@ -93,7 +108,7 @@ const QuestionPage: React.FC = () => {
             className="hover:text-blue-400 transition-all duration-200"
             onClick={() => handleAnswer('3')}
           >
-            3.약간 스트레스 받음
+            3. 약간 스트레스 받음
           </button>
           <button
             className="hover:text-blue-400 transition-all duration-200"
